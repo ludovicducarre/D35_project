@@ -1,9 +1,10 @@
+package fr.univtln.lducarre365.projetD35;
 import java.util.Date;
 
 /**
  * Created by tomtom on 26/10/17.
  */
-public class Event {
+public class Advert {
     private int id;
     private String title;
     private String message;
@@ -11,7 +12,7 @@ public class Event {
     private String location;
     private String type;
 
-    public Event(int id, String title, String message, Date date, String location, String type) {
+    public Advert(int id, String title, String message, Date date, String location, String type) {
         this.id = id;
         this.title = title;
         this.message = message;
@@ -20,7 +21,7 @@ public class Event {
         this.type = type;
     }
 
-    public Event() {
+    public Advert() {
     }
 
     public int getId() {

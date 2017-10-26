@@ -1,10 +1,13 @@
-package cities;
+package fr.univtln.lducarre365.projetD35.cities;
+
+import java.util.LinkedList;
 
 public class Town {
     private int id;
     private String name;
     private String country;
     private String state;
+    private LinkedList<fr.univtln.lducarre365.projetD35.Advert> adverts;
 
     public int getId() {
         return id;
