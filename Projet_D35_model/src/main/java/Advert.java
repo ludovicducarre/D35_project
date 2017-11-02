@@ -1,5 +1,6 @@
 package fr.univtln.lducarre365.projetD35;
-import java.util.Date;
+
+import java.util.Calendar;
 
 /**
  * Created by tomtom on 26/10/17.
@@ -8,67 +9,132 @@ public class Advert {
     private int id;
     private String title;
     private String message;
-    private Date date;
+    private Calendar date;
+    private Calendar time;
     private String location;
     private String type;
+    private fr.univtln.lducarre365.projetD35.cities.Town town;
 
-    public Advert(int id, String title, String message, Date date, String location, String type) {
-        this.id = id;
-        this.title = title;
-        this.message = message;
-        this.date = date;
-        this.location = location;
-        this.type = type;
+
+    private Advert() {
     }
 
-    public Advert() {
+    private Advert(Builder builder) {
+        this.id = builder.id;
+        this.title = builder.title;
+        this.message = builder.message;
+        this.town = builder.town;
+        this.date = builder.date;
+        this.time = builder.time;
+        this.type = builder.type;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public Calendar getTime() {
+        return time;
     }
 
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public fr.univtln.lducarre365.projetD35.cities.Town getTown() {
+        return town;
     }
+
+    @Override
+    public String toString() {
+        return "Advert{" +
+                "id=" + id +
+                ", message='" + message + '\'' +
+                ", town=" + town +
+                ", type=" + type +
+                ", date=" + date +
+                ", time=" + time +
+                '}';
+    }
+
+    public static class Builder {
+        private int id;
+        private String title;
+        private String message;
+        private Calendar date;
+        private Calendar time;
+        private String location;
+        private String type;
+        private fr.univtln.lducarre365.projetD35.cities.Town town;
+
+
+        public Advert build() {
+            this.setId(id);
+            this.setMessage(message);
+            this.setTown(town);
+            this.setTime(time);
+            this.setDate(date);
+            this.setTitle(title);
+            this.setLocation(location);
+            this.setType(type);
+            return new Advert(this);
+        }
+
+        public Builder setId(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setMessage(String message) {
+            this.message = message;
+            return this;
+        }
+
+        public Builder setTitle(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Builder setTown(fr.univtln.lducarre365.projetD35.cities.Town town) {
+            this.town = town;
+            return this;
+        }
+
+        public Builder setType(String type) {
+            this.type = type;
+            return this;
+        }
+
+        public Builder setDate(Calendar date) {
+            this.date = date;
+            return this;
+        }
+
+        public Builder setTime(Calendar time) {
+            this.time = time;
+            return this;
+        }
+
+        public Builder setLocation(String location) {
+            this.location = location;
+            return this;
+        }
+    }
+
 }
